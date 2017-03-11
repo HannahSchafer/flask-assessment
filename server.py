@@ -1,6 +1,7 @@
 from flask import Flask, request, render_template
 from flask_debugtoolbar import DebugToolbarExtension
 from random import sample
+from money import Money
 
 app = Flask(__name__)
 
@@ -34,11 +35,13 @@ def application_received():
     first = request.form.get("firstname")
     last = request.form.get("lastname")
     role = request.form.get("job")
-    salary = request.form.get("salary")
-    print role
+    raw_salary = request.form.get("salary")
+    string_salary = str(raw_salary)
+    currency_salary = Money(amount=string_salary, currency = 'USD')
 
     return render_template("application-response.html", firstname=first, 
-                            lastname=last, position=role, salary=salary)
+                            lastname=last, position=role, 
+                            salary=currency_salary)
 
 
 if __name__ == "__main__":

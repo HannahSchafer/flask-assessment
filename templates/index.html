@@ -1,13 +1,14 @@
 <!doctype html>
 <html>
 <head>
-    <title>Home Page</title>
+    {% extends 'base.html' %}
+    {% block title %}Home Page{% endblock %}
 </head>
-<body>
+{% block content %}
 
   <h1>Click below to go to the application form.</h1>
   <form action="/application-form" method="GET">
     <input type="submit">
 </form>
-</body>
+{% endblock %}
 </html>

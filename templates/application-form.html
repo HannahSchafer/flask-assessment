@@ -1,10 +1,11 @@
 <!doctype html>
 <html>
 <head>
-    <title>Application Form</title>
-    <link href="static/copy_styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="static/copy_styles.css">
+    {% extends 'base.html' %}
+    {% block title %}Application Form{% endblock%}
 </head>
-<body>
+{% block content %}
   <h1>
     Application Form
   </h1>
@@ -14,7 +15,8 @@
   <form action="/application-success" method="POST">
     First Name: <input type="text" name="firstname" >
     <label>Last Name: <input type="text" name="lastname"></label><br><br>
-    Salary Requirements: $<input type="number" name="salary"><br><br>
+    Salary Requirements: $<input type="number" class = "currency"
+    name="salary"><br><br>
 
     What job are you applying for?
     {% for job in jobs %}
@@ -23,7 +25,7 @@
     
     <input type="submit">
   </form>
-</body>
+{% endblock %}
 </html>
 
 
