@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>Application Form</title>
-    <link href="./styles.css" rel="stylesheet">
+    <link href="./copy_styles.css" rel="stylesheet">
 </head>
 <body>
   <h1>
@@ -15,11 +15,15 @@
     First Name: <input type="text" name="firstname" >
     <label>Last Name: <input type="text" name="lastname"></label><br><br>
     Salary Requirements: <input type="number" name="salary"><br><br>
+
     What job are you applying for?
-    <input type="radio" name="job" value="software">Software Engineer
-    <input type="radio" name="job" value="QA">QA Engineer
-    <input type="radio" name="job" value="product">Product Manager<br><br>
+    {% for job in jobs %}
+      <input type="radio" name="job" value={{job}}>{{ job }}
+    {% endfor %}<br><br>
+    
     <input type="submit">
   </form>
 </body>
 </html>
+
+
