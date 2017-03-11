@@ -23,8 +23,22 @@ def application_form():
     """Go to application form."""
 
     jobs = ["Software Engineer", "QA Engineer", "Product Manager"]
-    
+
     return render_template("application-form.html", jobs=jobs)
+
+
+@app.route("/application-success", methods=["POST"])
+def application_received():
+    """Receives application inputs and returns a message."""
+
+    first = request.form.get("firstname")
+    last = request.form.get("lastname")
+    role = request.form.get("job")
+    salary = request.form.get("salary")
+    print role
+
+    return render_template("application-response.html", firstname=first, 
+                            lastname=last, position=role, salary=salary)
 
 
 if __name__ == "__main__":
