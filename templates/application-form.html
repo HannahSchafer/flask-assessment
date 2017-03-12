@@ -1,7 +1,6 @@
 <!doctype html>
 <html>
 <head>
-    <link rel="stylesheet" href="static/copy_styles.css">
     {% extends 'base.html' %}
     {% block title %}Application Form{% endblock%}
 </head>
@@ -22,7 +21,6 @@
     {% for job in jobs %}
       <input type="radio" name="job" value="{{ job }}">{{ job }}
     {% endfor %}<br><br>
-    
     <input type="submit">
   </form>
 {% endblock %}
